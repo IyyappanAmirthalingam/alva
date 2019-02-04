@@ -275,7 +275,14 @@ export function analyzePatternExport(
 			slots.push({
 				model: Types.ModelName.PatternSlot,
 				contextId: 'children',
-				default: '',
+				default: {
+					parent: '',
+					patternContextId: '',
+					libraryId: '',
+					id: '',
+					props: [],
+					children: []
+				},
 				description: 'Element that render inside this element',
 				example: '',
 				hidden: false,
