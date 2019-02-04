@@ -44,6 +44,20 @@ export enum SlotType {
 	Property = 'property'
 }
 
+export interface ElementCandidate {
+	parent: string;
+	patternContextId: string;
+	libraryId: string;
+	id: string;
+	props: ElementProp[];
+	children: ElementCandidate[];
+}
+
+export interface ElementProp {
+	propName: string;
+	value: any;
+}
+
 export interface RenderPage {
 	id: string;
 	name: string;

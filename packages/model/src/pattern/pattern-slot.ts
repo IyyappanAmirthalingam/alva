@@ -5,6 +5,7 @@ import * as uuid from 'uuid';
 export interface PatternSlotInit {
 	contextId: string;
 	displayName: string;
+	default: Types.ElementCandidate;
 	description: string;
 	example: string;
 	hidden: boolean;
@@ -19,6 +20,7 @@ export class PatternSlot {
 
 	private contextId: string;
 	private displayName: string;
+	private default: Types.ElementCandidate;
 	private description: string;
 	private example: string;
 	private hidden: boolean;
@@ -31,6 +33,7 @@ export class PatternSlot {
 		this.type = init.type;
 		this.id = init.id;
 		this.displayName = init.displayName;
+		this.default = init.default;
 		this.description = init.description;
 		this.example = init.example;
 		this.hidden = init.hidden;
@@ -43,6 +46,7 @@ export class PatternSlot {
 	public static from(serialized: Types.SerializedPatternSlot): PatternSlot {
 		return new PatternSlot({
 			contextId: serialized.contextId,
+			default: serialized.default,
 			description: serialized.description,
 			displayName: serialized.label,
 			example: serialized.example,
@@ -57,6 +61,7 @@ export class PatternSlot {
 	public clone(): PatternSlot {
 		return new PatternSlot({
 			contextId: this.contextId,
+			default: this.default,
 			description: this.description,
 			displayName: this.displayName,
 			example: this.example,
@@ -74,6 +79,10 @@ export class PatternSlot {
 
 	public getContextId(): string {
 		return this.contextId;
+	}
+
+	public getDefault(): Types.ElementCandidate {
+		return this.default;
 	}
 
 	public getHidden(): boolean {
@@ -104,6 +113,7 @@ export class PatternSlot {
 		return {
 			model: this.model,
 			contextId: this.contextId,
+			default: this.default,
 			description: this.description,
 			example: this.example,
 			hidden: this.hidden,
@@ -118,6 +128,7 @@ export class PatternSlot {
 	public update(b: PatternSlot): void {
 		this.contextId = b.contextId;
 		this.description = b.description;
+		this.default = b.default;
 		this.example = b.example;
 		this.hidden = b.hidden;
 		this.displayName = b.displayName;

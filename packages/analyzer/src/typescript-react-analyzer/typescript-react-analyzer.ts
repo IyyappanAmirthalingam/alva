@@ -4,7 +4,7 @@ import * as Path from 'path';
 import * as PropertyAnalyzer from './property-analyzer';
 import * as ReactUtils from '../react-utils';
 import * as readPkg from 'read-pkg';
-import * as SlotAnalyzer from './slot-analzyer';
+import * as SlotAnalyzer from './slot-analyzer';
 import * as Types from '@meetalva/types';
 import * as TypeScriptUtils from '../typescript-utils';
 import * as ts from 'typescript';
@@ -275,6 +275,7 @@ export function analyzePatternExport(
 			slots.push({
 				model: Types.ModelName.PatternSlot,
 				contextId: 'children',
+				default: '',
 				description: 'Element that render inside this element',
 				example: '',
 				hidden: false,

@@ -71,6 +71,7 @@ export function analyzeSlots(
 			return {
 				contextId: propertyName,
 				label: label || propertyName,
+				default: defaultContent,
 				description,
 				example,
 				hidden,

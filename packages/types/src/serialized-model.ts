@@ -67,6 +67,7 @@ export interface SerializedPattern {
 export interface SerializedPatternSlot {
 	model: Types.ModelName.PatternSlot;
 	contextId: string;
+	default: Types.ElementCandidate;
 	description: string;
 	example: string;
 	hidden: boolean;
